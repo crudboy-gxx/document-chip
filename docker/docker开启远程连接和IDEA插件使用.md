@@ -18,3 +18,6 @@ sudo systemctl restart docker
 在设置Setting中找到Plugins搜索Docker，找到Docker Integration下载重启idea，成功后在setting中可以看到Docker。点击Docker“+”新建一个Docker连接，通过tcp的方式连接到centos的docker服务。信息配置好后，idea会自动检测。然后会输出“connection successful”。
 
 ![image-20200921160402069](https://raw.githubusercontent.com/guoxx-crudboy/picture/master/image-20200921160402069.png)
+
+# portainer可视化
+`docker run -d -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /mnt/docker/portainer:/data portainer/portainer`
