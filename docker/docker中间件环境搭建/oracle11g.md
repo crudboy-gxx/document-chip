@@ -21,11 +21,11 @@
 	  
 	+ 编辑profile文件配置ORACLE环境变量
 	  `vi /etc/profile`
-        ~~~
-        export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2
-        export ORACLE_SID=helowin
-        export PATH=$ORACLE_HOME/bin:$PATH
-        ~~~ 
+      ~~~conf
+      export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2
+      export ORACLE_SID=helowin
+      export PATH=$ORACLE_HOME/bin:$PATH
+      ~~~ 
 	  `source /etc/profile`
 	
 	+ 创建软连接
@@ -47,4 +47,4 @@
 		创建用户：
 		`create user test identified by test;`
 		并给用户赋予权限：
-	      `grant connect,resource,dba to test;`
+	    `grant connect,resource,dba to test;`
