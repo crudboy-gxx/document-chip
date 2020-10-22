@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: guox
  * @Date: 2020-09-21 16:15:51
- * @LastEditors: guox
+ * @LastEditors: Please set LastEditors
 -->
 + 拉取镜像
 `docker pull nginx:1.15`
@@ -45,6 +45,15 @@
         keepalive_timeout  65;
 
         #gzip  on;
+        ## pigx配置
+        gzip  on;
+        gzip_static on;
+        gzip_min_length 1k;
+        gzip_comp_level 4;
+        gzip_proxied any;
+        gzip_types text/plain text/xml text/css;
+        gzip_vary on;
+        gzip_disable "MSIE [1-6]\.(?!.*SV1)";
 
         server {
             listen       80;
@@ -78,4 +87,4 @@
     }
   ~~~
 + 创建容器
-`docker run -idt --name nginx -p 6060:80  -v /home/html/ui/:/home/html/ui/ -v /home/nginx/nginx.conf:/etc/nginx/nginx.conf -e LANG=en_US.UTF-8  nginx:1.15`
+`docker run -idt --name nginx -p 8080:80  -v /home/efpx/ui/dist/:/home/efpx/ui/dist/ -v /home/nginx/nginx.conf:/etc/nginx/nginx.conf -e LANG=en_US.UTF-8  nginx:1.15`

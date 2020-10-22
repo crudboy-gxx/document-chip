@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-21 15:04:54
+ * @LastEditTime: 2020-10-22 14:42:10
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \github\work\docker\centos7安装docker服务.md
+-->
 # 修改yum源
 
 + 下载wget 
@@ -26,11 +34,6 @@
   yum-util提供yum-config-manager功能，另外两个是devicemapper驱动依赖的
 + 设置yum源 
   `sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
-+ 配置加速路径 
-  `vim /etc/docker/daemon.json`
-  ~~~
-  {"registry-mirrors": ["https://wgct39xz.mirror.aliyuncs.com"]}
-  ~~~
 + 查看仓库中版本，安装17.12版本
   `yum list docker-ce --showduplicates | sort -r`
   `sudo yum install docker-ce-17.12.0.ce`
@@ -41,3 +44,10 @@
   ~~~
 + 验证安装（有client和service两部分表示docker安装启动都成功了）
   `docker version `
++ 配置加速路径 
+  `vim /etc/docker/daemon.json`
+  ~~~
+  {"registry-mirrors": ["https://wgct39xz.mirror.aliyuncs.com"]}
+  ~~~
++ 重启服务
+  `sudo systemctl daemon-reload` `sudo service docker restart`
