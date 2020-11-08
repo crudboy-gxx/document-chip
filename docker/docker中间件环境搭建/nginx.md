@@ -87,4 +87,4 @@
     }
   ~~~
 + 创建容器
-`docker run -idt --name nginx -p 8080:80  -v /home/efpx/ui/dist/:/home/efpx/ui/dist/ -v /home/nginx/nginx.conf:/etc/nginx/nginx.conf -e LANG=en_US.UTF-8  nginx:1.15`
+`docker run -idt --name nginx -p 80:80  -v /home/sdtzb/ui/dist/:/home/sdtzb/ui/dist/ -v /home/sdtzb/nginx/nginx.conf:/etc/nginx/nginx.conf -e LANG=en_US.UTF-8  nginx:1.15`
