@@ -9,3 +9,4 @@
    + 增加文件夹权限 `chmod -R 777 /test`
 4. 杀死进程 `kill -9 PID(第一个)`
 5. 清理缓存 `echo 1 > /proc/sys/vm/drop_caches`
+6. 查看端口占用 `netstat -ntlp`
