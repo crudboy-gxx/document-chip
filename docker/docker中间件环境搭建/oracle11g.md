@@ -8,7 +8,7 @@
 + 拉取镜像：
 `docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g`
 + 创建容器：
-`docker run -d –p 1521:1521 --name oracle11g registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g`
+`docker run -d -p 1521:1521 --name oracle11g registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g`
 + 启动容器
 `docker start oracle11g`
 + 进入镜像进行配置
@@ -48,3 +48,4 @@
 		`create user test identified by test;`
 		并给用户赋予权限：
 	    `grant connect,resource,dba to test;`
++ 连接 `10.20.12.24:1521/helowinXDB`
