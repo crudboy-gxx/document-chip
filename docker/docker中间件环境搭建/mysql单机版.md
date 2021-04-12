@@ -26,7 +26,7 @@
     ~~~
 + 创建容器
     ~~~shell
-    docker run -d --name mysql5.7 -p 33060:3306 --restart always --privileged=true -v /home/mysql/conf:/etc/mysql -v /home/mysql/data:/var/lib/mysql -v /home/mysql/logs:/logs -e MYSQL_ROOT_PASSWORD="password" mysql:5.7
+    docker run -d --name mysql5.7 -p 33060:3306 --restart always --privileged=true -v /home/mysql/conf/mysql:/etc/mysql -v /home/mysql/data:/var/lib/mysql -v /home/mysql/logs:/logs -e MYSQL_ROOT_PASSWORD="password" mysql:5.7
         --restart always                                -> 开机启动
         --privileged=true                               -> 提升容器内权限
         -v /root/docker/mysqletc/mysql:/etc/mysql       -> 映射配置文件
