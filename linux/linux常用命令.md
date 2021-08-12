@@ -15,3 +15,5 @@
   + 2、查看 CPU 核心数量 `grep 'core id' /proc/cpuinfo | sort -u | wc -l`
   + 3、查看 CPU 线程数 `grep 'processor' /proc/cpuinfo | sort -u | wc -l`
 + 查看cpu使用情况 `vmstat 5`
++ 查看某个文件夹下目录 `du -sh * | sort -n`
++ 查询磁盘文件大小 `du -sh /opt/* | sort -nr`
