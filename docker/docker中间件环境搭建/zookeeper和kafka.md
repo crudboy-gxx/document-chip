@@ -24,3 +24,15 @@ docker容器部署必须指定以下环境变量：
 + 测试kafka
   `docker exec kafka kafka-topics.sh --create --zookeeper 10.20.12.24:2181 --replication-factor 1 --partitions 1 --topic test`
   `docker exec kafka kafka-topics.sh --list --zookeeper 10.20.12.24:2181`
+
+
++ 集群部署kafak
+~~~
+  docker run -dit --name kafka-node1 --net host -e KAFKA_BROKER_ID=1 -e KAFKA_ZOOKEEPER_CONNECT=midnode1:2181,midnode2:2181,midnode3:2181  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://midnode1:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 wurstmeister/kafka:latest
+
+  docker run -dit --name kafka-node2 --net host -e KAFKA_BROKER_ID=2 -e KAFKA_ZOOKEEPER_CONNECT=midnode1:2181,midnode2:2181,midnode3:2181  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://midnode2:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 wurstmeister/kafka:latest
+
+  docker run -dit --name kafka-node3 --net host -e KAFKA_BROKER_ID=3 -e KAFKA_ZOOKEEPER_CONNECT=midnode1:2181,midnode2:2181,midnode3:2181  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://midnode3:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 wurstmeister/kafka:latest
+
+  docker exec kafka-node1 kafka-topics.sh --create --zookeeper midnode1:2181,midnode2:2181,midnode3:2181 --replication-factor 2 --partitions 3 --topic ttp
+~~~
