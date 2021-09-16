@@ -3,20 +3,20 @@
 `docker pull mysql:5.7`
 + 宿主机新建文件夹
     ~~~shell
-    mkdir /home/mysql
-    mkdir /home/mysql/conf
-    mkdir /home/mysql/data
-    mkdir /home/mysql/logs
+    mkdir /sdyy/mysql
+    mkdir /sdyy/mysql/conf
+    mkdir /sdyy/mysql/data
+    mkdir /sdyy/mysql/logs
     ~~~
 + 获取配置文件
     ~~~shell
     docker run -d -p 3306:3306 --name myMysql -e MYSQL_ROOT_PASSWORD=root mysql:5.7
-    docker cp myMysql:/etc/mysql  /home/mysql/conf
+    docker cp myMysql:/etc/mysql  /sdyy/mysql/conf
     docker stop myMysql
     docker rm myMysql
     ~~~
 + 配置mysqld.cnf文件
-`vi /home/mysql/conf/mysql/mysql.conf.d/mysqld.cnf`
+`vi /sdyy/mysql/conf/mysql/mysql.conf.d/mysqld.cnf`
 增加如下参数
     ~~~conf
     lower_case_table_names=1
@@ -26,7 +26,7 @@
     ~~~
 + 创建容器
     ~~~shell
-    docker run -d --name mysql5.7 -p 33060:3306 --restart always --privileged=true -v /home/mysql/conf/mysql:/etc/mysql -v /home/mysql/data:/var/lib/mysql -v /home/mysql/logs:/logs -e MYSQL_ROOT_PASSWORD="password" mysql:5.7
+    docker run -d --name mysql5.7 -p 33060:3306 --restart always --privileged=true -v /sdyy/mysql/conf/mysql:/etc/mysql -v /sdyy/mysql/data:/var/lib/mysql -v /sdyy/mysql/logs:/logs -e MYSQL_ROOT_PASSWORD="password" mysql:5.7
         --restart always                                -> 开机启动
         --privileged=true                               -> 提升容器内权限
         -v /root/docker/mysqletc/mysql:/etc/mysql       -> 映射配置文件

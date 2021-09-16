@@ -10,9 +10,9 @@
 
 + 宿主机新建文件夹
     ~~~shell
-    mkdir /home/redis
-    mkdir /home/redis/conf
-    mkdir /home/redis/data
+    mkdir /sdyy/redis
+    mkdir /sdyy/redis/conf
+    mkdir /sdyy/redis/data
     ~~~
 
 + 新增配置文件，并放到conf目录下
@@ -516,7 +516,7 @@
     # 150k passwords per second against a good box. This means that you should
     # use a very strong password otherwise it will be very easy to break.
     #
-    requirepass 123456
+    requirepass password
     
     # Command renaming.
     #
@@ -1325,4 +1325,4 @@
     # active-defrag-cycle-max 75
   ~~~
 + 创建容器
-`docker run --name redis -p 63790:6379 -idt --restart always -v /home/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf  -v /home/redis/data:/data redis:4.0.0 redis-server /usr/local/etc/redis/redis.conf --appendonly yes`
+`docker run --name redis -p 63790:6379 -idt --restart always -v /sdyy/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf  -v /sdyy/redis/data:/data redis  redis-server /usr/local/etc/redis/redis.conf --appendonly yes`
