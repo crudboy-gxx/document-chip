@@ -17,3 +17,4 @@
 + 查看cpu使用情况 `vmstat 5`
 + 查看某个文件夹下目录 `du -sh * | sort -n`
 + 查询磁盘文件大小 `du -sh /opt/* | sort -nr`
++ 查看进程详细情况
