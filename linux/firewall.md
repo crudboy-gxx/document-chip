@@ -41,3 +41,7 @@
 	重新载入：firewall-cmd --reload
 	查看：firewall-cmd --zone= public --query-port=80/tcp
     删除：firewall-cmd --zone= public --remove-port=80/tcp --permanent
+
+
+限定ip
+firewall-cmd --permanent --add-rich-rule 'rule family=ipv4 source address=192.168.0.1/2 port port=80 protocol=tcp accept'
