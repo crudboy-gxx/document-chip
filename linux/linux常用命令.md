@@ -18,3 +18,4 @@
 + 查看某个文件夹下目录 `du -sh * | sort -n`
 + 查询磁盘文件大小 `du -sh /opt/* | sort -nr`
 + 查看进程详细情况
++ 后台运行jar且不输入nohup日志 `nohup java -jar yourProject.jar >/dev/null 2>&1 & `
