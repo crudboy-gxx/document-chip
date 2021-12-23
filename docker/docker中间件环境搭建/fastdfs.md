@@ -9,4 +9,6 @@ docker run -d --network=host --name storage -e TRACKER_SERVER=10.128.35.28:22122
 docker exec -it storage bash
 vi /home/test.txt
 /usr/bin/fdfs_upload_file /etc/fdfs/client.conf /home/test.txt
-http://10.128.35.28:8888/group1/M00/00/00/CoAjHGCFTNeAOUhBAAAABD1ngkg800.txt
+
+
+curl http://172.23.3.63:8888/group1/M00/00/00/rBcDP2HEHuKADabXAAAAESmehxQ815.txt
