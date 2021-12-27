@@ -12,4 +12,4 @@ $ docker exec -it mongo mongo admin
 
 
 ## 创建普通用户
-> db.createUser({user:'ecis', pwd:'ecisn', roles:['readWrite']})
+> db.createUser({user:'ecis', pwd:'ecis', roles:['readWrite']})
