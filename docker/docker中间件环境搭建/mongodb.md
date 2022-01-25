@@ -6,7 +6,9 @@ $ docker run -itd --name mongo -p 27017:27017 -v /sdyy/mongo/data:/data/db --res
 ## 启动镜像方式2
 $ docker run -itd --name mongo -p 27017:27017 -v /sdyy/mongo/data:/data/db --restart always mongo:latest --auth
 ### 进入容器
-$ docker exec -it mongo mongo admin
+$ docker exec -it mongo bash
+### 执行命令连接mongo
+mongo admin 或 mongo 127.0.0.1:27017/admin
 ### 创建一个名为 admin，密码为 123456 的用户。
 > db.createUser({ user:'admin',pwd:'password',roles:[ { role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
 

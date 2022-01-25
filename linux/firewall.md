@@ -45,3 +45,12 @@
 
 限定ip
 firewall-cmd --permanent --add-rich-rule 'rule family=ipv4 source address=192.168.0.1/2 port port=80 protocol=tcp accept'
+
+
+
+iptables 限制ip访问
+通过iptables限制9889端口的访问（只允许192.168.1.201、192.168.1.202、192.168.1.203）,其他ip都禁止访问
+iptables -I INPUT -p tcp --dport 9889 -j DROP
+iptables -I INPUT -s 192.168.1.201 -p tcp --dport 9889 -j ACCEPT
+iptables -I INPUT -s 192.168.1.202 -p tcp --dport 9889 -j ACCEPT
+iptables -I INPUT -s 192.168.1.203 -p tcp --dport 9889 -j ACCEPT
