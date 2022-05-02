@@ -19,3 +19,5 @@
 + 查询磁盘文件大小 `du -sh /opt/* | sort -nr`
 + 查看进程详细情况
 + 后台运行jar且不输入nohup日志 `nohup java -jar yourProject.jar >/dev/null 2>&1 & `
++ 从本地复制到远程 scp -r /root/lk root@43.224.34.73:/home/lk/cpfile
++ 从远程复制到本地 scp -r root@43.224.34.73:/home/lk /root
