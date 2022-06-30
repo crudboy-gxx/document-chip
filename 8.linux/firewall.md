@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-11-11 14:47:42
- * @LastEditTime: 2020-11-11 14:48:02
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \github\work\linux\firewall.md
--->
 1、firewalld的基本使用
 	启动： systemctl start firewalld
 	关闭： systemctl stop firewalld
@@ -50,7 +42,10 @@ firewall-cmd --permanent --add-rich-rule 'rule family=ipv4 source address=192.16
 
 iptables 限制ip访问
 通过iptables限制9889端口的访问（只允许192.168.1.201、192.168.1.202、192.168.1.203）,其他ip都禁止访问
-iptables -I INPUT -p tcp --dport 9889 -j DROP
-iptables -I INPUT -s 192.168.1.201 -p tcp --dport 9889 -j ACCEPT
+iptables -I INPUT -p tcp --dport 6379 -j DROP
+iptables -I INPUT -s 127.0.0.1 -p tcp --dport 6379 -j ACCEPT
 iptables -I INPUT -s 192.168.1.202 -p tcp --dport 9889 -j ACCEPT
 iptables -I INPUT -s 192.168.1.203 -p tcp --dport 9889 -j ACCEPT
+
+
+iptables -L -n
