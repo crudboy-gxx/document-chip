@@ -21,3 +21,4 @@
 + 后台运行jar且不输入nohup日志 `nohup java -jar yourProject.jar >/dev/null 2>&1 & `
 + 从本地复制到远程 `scp -r /root/lk root@43.224.34.73:/home/lk/cpfile`
 + 从远程复制到本地 `scp -r root@43.224.34.73:/home/lk /root`
++ 测试磁盘读写 `fio -direct=1 -iodepth=128 -rw=randwrite -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=iotest -name=Rand_Write_Testing`
