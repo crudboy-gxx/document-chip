@@ -47,3 +47,7 @@ iptables -I DOCKER -p tcp --dport 9200 -j DROP
 iptables -I DOCKER -p tcp --dport 9300 -j DROP
 iptables -I DOCKER -s 127.0.0.1 -p tcp --dport 6379 -j ACCEPT
 iptables -L -n
+
+## 删除
+iptables -L -n --line-num
+iptables -D INPUT 1
